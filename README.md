@@ -1,4 +1,4 @@
-# Sentiment-Analysis-of-Twitter
+# Sentiment Analysis of Twitter Data Using Machine Learning
 
 ### Overview
 
