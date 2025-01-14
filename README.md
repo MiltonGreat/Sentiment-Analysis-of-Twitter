@@ -16,6 +16,7 @@ The goal of this project is to analyze Twitter data for sentiment classification
 ### Dataset 
 
 The Sentiment140 dataset contains 1.6 million tweets, extracted via the Twitter API and labeled for sentiment polarity.
+
 Fields in the dataset:
 
 - Target: Sentiment of the tweet (0 = Negative, 4 = Positive).
@@ -25,20 +26,29 @@ Fields in the dataset:
 - User: Username of the person who tweeted.
 - Text: Actual tweet content.
 
-### Project Workflow
+### Solution Approach
 
-##### Text Preprocessing:
-- Tokenization, stopword removal, lemmatization.
-- Removal of URLs, hashtags, mentions, and punctuations.
+#### 1. Data Cleaning:
+- Removed URLs, mentions, hashtags, and punctuation using regular expressions.
+- Converted all text to lowercase for consistency.
+- Applied stopword removal and lemmatization to standardize the vocabulary.
 
-##### Visualizations:
-- Sentiment distribution bar plots and pie charts.
-- Word clouds for positive and negative tweets.
+#### 2. Exploratory Data Analysis (EDA):
+- Generated word clouds to identify common terms in positive and negative tweets.
+- Plotted sentiment distributions to ensure balanced class representation.
+- Analyzed sentiment trends over time using timestamps.
 
-##### Machine Learning:
-- Model: LSTM neural network.
-- Word Embeddings: Pre-trained GloVe embeddings (100-dimensional).
-- Evaluation Metrics: Precision, Recall, F1-score, Accuracy.
+#### 3. Feature Engineering:
+- Created cleaned_text for preprocessed tweet content.
+- Used GloVe embeddings (100-dimensional vectors) for semantic representation of words.
+
+#### 4. Model Building:
+- Built and trained an LSTM neural network for sentiment classification.
+- Experimented with baseline models like Logistic Regression and Naive Bayes using TF-IDF features for comparison.
+
+#### 5. Evaluation:
+- Evaluated models using precision, recall, F1-score, and accuracy.
+- The LSTM model achieved an overall accuracy of 79%, demonstrating its effectiveness for sentiment analysis.
 
 ### Model Performance
 
@@ -51,6 +61,12 @@ The model achieves an overall accuracy of 79%, with balanced precision and recal
 - Common positive words include "love," "great," and "happy."
 - Negative words emphasize "hate," "bad," and "sad."
 - Prediction: The model reliably predicts sentiment based on tweet text with high confidence.
+
+### Challenges
+
+- Noisy Data: Tweets included informal language, emojis, and abbreviations.
+- Class Imbalance: Addressed using balanced sampling techniques during training.
+- Context Dependency: Sarcasm and negations required careful consideration to prevent misclassification.
 
 ### Source
 
